@@ -5,6 +5,7 @@ import { User } from "@phosphor-icons/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { TextInput } from "../_components/textInput";
+import { useRouter } from "next/navigation";
 
 const schema = z.object({
   name: z.string().min(1, { message: "Campo obrigatório." }),
@@ -22,6 +23,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 export default function NewClient() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -146,7 +148,8 @@ export default function NewClient() {
               Criar
             </button>
             <button
-              type="submit"
+              type="button"
+              onClick={() => router.back()}
               className="rounded-md border border-primary bg-white px-9 py-2 font-semibold text-primary hover:bg-primary hover:text-white"
             >
               Voltar
