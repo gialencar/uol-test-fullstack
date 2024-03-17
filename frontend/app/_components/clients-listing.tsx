@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const ClientsListing = () => {
   return (
     <div>
@@ -9,9 +11,12 @@ export const ClientsListing = () => {
           </p>
         </div>
 
-        <button className="bg-primary mr-12 rounded-md px-4 py-2 font-semibold text-white">
+        <Link
+          href="/new-client"
+          className="mr-12 rounded-md bg-primary px-4 py-2 font-semibold text-white"
+        >
           Novo cliente
-        </button>
+        </Link>
       </div>
     </div>
   );
