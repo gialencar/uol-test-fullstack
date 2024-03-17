@@ -30,8 +30,24 @@ export default function NewClient() {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormFields> = (data: FormFields) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormFields> = async (data: FormFields) => {
+    try {
+      const response = await fetch("http://localhost:3000/clients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log("Client created successfully");
+      } else {
+        console.error("Failed to create client");
+      }
+    } catch (error) {
+      console.error("An error occurred", error);
+    }
   };
 
   return (
