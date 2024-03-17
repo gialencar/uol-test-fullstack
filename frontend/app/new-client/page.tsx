@@ -33,6 +33,7 @@ export default function NewClient() {
   const onSubmit: SubmitHandler<FormFields> = async (data: FormFields) => {
     try {
       const response = await fetch("http://localhost:3000/clients", {
+        // TODO: use env variable
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -129,7 +130,7 @@ export default function NewClient() {
             {...register("status", {
               required: "Campo obrigatório",
             })}
-            className="mt-6 rounded-md py-3"
+            className="mt-6 rounded-md py-3 "
           >
             <option value="ativo">Ativo</option>
             <option value="inativo">Inativo</option>
@@ -140,13 +141,13 @@ export default function NewClient() {
           <div className="mt-16 flex justify-between">
             <button
               type="submit"
-              className="rounded-md bg-primary px-12 py-3 font-semibold text-white"
+              className="rounded-md bg-primary px-9 py-2 font-semibold text-white"
             >
               Criar
             </button>
             <button
               type="submit"
-              className="rounded-md border border-primary bg-white px-12 py-3 font-semibold text-primary"
+              className="rounded-md border border-primary bg-white px-9 py-2 font-semibold text-primary hover:bg-primary hover:text-white"
             >
               Voltar
             </button>

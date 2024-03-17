@@ -1,6 +1,38 @@
+"use client";
+
 import Link from "next/link";
+import { Client } from "./client";
+import { useEffect, useState } from "react";
+
+interface ClientData {
+  id: number;
+  name: string;
+  email: string;
+  cpf: string;
+  phone: string;
+  status: string;
+}
 
 export const ClientsListing = () => {
+  const [clients, setClients] = useState<ClientData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchClients();
+    setLoading(false);
+  }, []);
+
+  const fetchClients = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/clients"); // TODO: use env variable
+      const data = await response.json();
+      setClients(data);
+    } catch (error) {
+      console.error("Error fetching clients:", error);
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -18,6 +50,30 @@ export const ClientsListing = () => {
           Novo cliente
         </Link>
       </div>
+
+      {loading && (
+        <div className="flex justify-center pt-16">
+          <div
+            className="inline-block h-10 w-10 animate-spin rounded-full border-[3px] border-current border-t-transparent text-primary "
+            role="status"
+            aria-label="loading"
+          >
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      )}
+
+      {clients &&
+        clients.map((client) => (
+          <Client
+            key={client.id}
+            name={client.name}
+            email={client.email}
+            cpf={client.cpf}
+            phone={client.phone}
+            status={client.status}
+          />
+        ))}
     </div>
   );
 };
