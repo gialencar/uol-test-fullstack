@@ -1,15 +1,14 @@
 "use client";
 import { isCPFValid } from "@/lib/cpfValidation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { User } from "@phosphor-icons/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { TextInput } from "../_components/textInput";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 const schema = z.object({
-  id: z.string(),
+  id: z.string().optional(),
   name: z.string().min(1, { message: "Campo obrigatório." }),
   email: z.string().email({ message: "Digite um email válido." }),
   cpf: z.string().refine(isCPFValid, "Digite um cpf válido."),
@@ -58,8 +57,6 @@ export default function Form({
       className="container flex w-1/4 flex-col "
       onSubmit={handleSubmit(onSubmit)}
     >
-      {/* <fieldset className="mb-8 flex flex-col space-y-6"> */}
-
       <TextInput
         register={register}
         name="name"
@@ -138,7 +135,6 @@ export default function Form({
           Voltar
         </button>
       </div>
-      {/* </fieldset> */}
     </form>
   );
 }
