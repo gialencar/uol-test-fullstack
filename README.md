@@ -4,38 +4,63 @@
 
 Neste desafio, você deverá desenvolver um aplicativo fullstack que permita aos usuários visualizar e criar clientes. O aplicativo consiste em duas partes: o frontend e o backend. O frontend será responsável pela interface do usuário e a comunicação com a API. O backend será responsável pelo armazenamento e gerenciamento dos dados dos clientes.
 
-## Requisitos do Frontend:
+## Pré-requisitos
 
-1. Exibir uma listagem de clientes contendo todas as informações conforme o layout fornecido.
-2. Permitir a criação de um novo cliente através de um formulário.
-3. Na tela de edição, fornecer alertas para o usuário em caso de dados inválidos.
-4. Realizar validação de CPF e telefone na tela de edição para garantir dados corretos e consistentes.
-5. Comunicar-se com a API para obter os dados dos clientes cadastrados.
+- Node >= 18.17.0
+- NPM
+- Opcionais:
+  - Docker
+  - Docker Compose
 
-## Requisitos do Backend:
+## Começando
 
-Criar uma API que ofereça endpoints para:
+1. Clone o repositório para a sua máquina local.
+2. Navegue até a pasta do projeto
 
-1. Obter a listagem de clientes cadastrados.
-2. Cadastrar um novo cliente com informações válidas.
-3. Atualizar informações de cliente existente.
-4. Armazenar os dados do cliente de forma persistente, com sugestão de uso do SQLite para essa finalidade.
+## Rodando o projeto
 
-## Requisitos de Qualidade de Código:
+### Opção 1 - docker compose
 
-Escreva um código limpo, legível e bem organizado.
-Adote boas práticas de desenvolvimento e arquitetura.
+1. Rode no terminal
 
-## Itens Desejáveis (opcional):
+```bash
+$ docker compose up --build
+```
 
-- Testes unitários
-- Bibliotecas ou frameworks adicionais
+2. Acesse o aplicativo em [http://localhost:3001](http://localhost:3001)
 
-## Telas:
+### Opção 2
 
-- [Tela Inicial](https://test-frontend-uolpp.web.app/assets/images/tela-inicial.jpg)
-- [Tela de Edição](https://test-frontend-uolpp.web.app/assets/images/tela-edicao.jpg)
+1. inicie o Backend:
 
-## Instruções Finais:
+```bash
+$ cd backend
+$ npm install
+$ npm start
+```
 
-Após concluir o desafio, crie um pull request neste repositório com duas pastas separadas: uma contendo o projeto frontend e outra com o projeto backend, para que possamos avaliar seu trabalho. Boa sorte!
+2. inicie o Frontend:
+
+```bash
+$ cd frontend
+$ npm install
+$ npm start
+```
+
+3. Acesse o aplicativo em [http://localhost:3001](http://localhost:3001)
+
+## Tecnologias
+
+Backend:
+
+- NestJS
+- SQLite
+- Prisma ORM
+- Docker
+
+Frontend:
+
+- NextJS
+- TailwindCSS
+- React Hook Form
+- Zod
