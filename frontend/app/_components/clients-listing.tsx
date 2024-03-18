@@ -3,18 +3,10 @@
 import Link from "next/link";
 import { Client } from "./client";
 import { useEffect, useState } from "react";
-
-interface ClientData {
-  id: number;
-  name: string;
-  email: string;
-  cpf: string;
-  phone: string;
-  status: string;
-}
+import { IClient } from "../_types/IClient";
 
 export const ClientsListing = () => {
-  const [clients, setClients] = useState<ClientData[]>([]);
+  const [clients, setClients] = useState<IClient[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -67,6 +59,7 @@ export const ClientsListing = () => {
         clients.map((client) => (
           <Client
             key={client.id}
+            id={client.id}
             name={client.name}
             email={client.email}
             cpf={client.cpf}
