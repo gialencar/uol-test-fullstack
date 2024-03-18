@@ -64,3 +64,14 @@ Frontend:
 - TailwindCSS
 - React Hook Form
 - Zod
+
+## Capturas de tela
+<details>
+  <summary>Spoiler</summary>
+  
+  ![screencapture-localhost-3001-2024-03-18-13_33_31](https://github.com/gialencar/uol-test-fullstack/assets/11895696/9c7c0974-a1a5-4eae-9db9-2c2d6998e774)
+  
+</details>
+
+
+
