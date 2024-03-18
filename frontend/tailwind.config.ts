@@ -10,9 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#E29933",
+        primaryDark: "#C47E1C",
+        primaryLight: "#E8Af5E",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
 export default config;
