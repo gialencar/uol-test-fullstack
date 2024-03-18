@@ -34,17 +34,18 @@ $ docker compose up --build
 1. inicie o Backend:
 
 ```bash
-$ cd backend
-$ npm install
-$ npm start
+cd backend
+npm install
+npm start
 ```
 
 2. inicie o Frontend:
 
 ```bash
-$ cd frontend
-$ npm install
-$ npm start
+cd frontend
+npm install
+npm run build
+npm start
 ```
 
 3. Acesse o aplicativo em [http://localhost:3001](http://localhost:3001)
@@ -66,12 +67,10 @@ Frontend:
 - Zod
 
 ## Capturas de tela
+
 <details>
   <summary>Spoiler</summary>
   
   ![screencapture-localhost-3001-2024-03-18-13_33_31](https://github.com/gialencar/uol-test-fullstack/assets/11895696/9c7c0974-a1a5-4eae-9db9-2c2d6998e774)
   
 </details>
-
-
-
